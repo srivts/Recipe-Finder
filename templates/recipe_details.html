@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recipe Details</title>
+</head>
+<body>
+    <h1>{{ recipe['name'] }}</h1>
+    <p><strong>Description:</strong> {{ recipe['description'] }}</p>
+    <p><strong>Ingredients:</strong> {{ recipe['ingredients'] | join(', ') }}</p>
+    <p><strong>Steps:</strong></p>
+    <ol>
+        {% for step in recipe['steps'] %}
+            <li>{{ step }}</li>
+        {% endfor %}
+    </ol>
+    <p><strong>Tags:</strong> {{ recipe['tags'] | join(', ') }}</p>
+    <p><strong>Nutrition:</strong>
+        {% for label, value in nutrition_list %}
+            {{ label }}: {{ value }},
+        {% endfor %}
+    </p>
+</body>
+</html>

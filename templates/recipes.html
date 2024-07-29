@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recipes Found</title>
+</head>
+<body>
+    <h1>Recipes Found</h1>
+    <ul>
+        {% for recipe in recipes %}
+            <li>
+                <a href="{{ url_for('recipe_details', recipe_id=recipe['id']) }}">{{ recipe['name'] }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
